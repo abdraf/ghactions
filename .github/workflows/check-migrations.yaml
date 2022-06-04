@@ -3,10 +3,10 @@ on:
   pull_request:
     types:
       - opened
-    branches:    
-      - 'releases/**'
-    paths:
-      - '**.js'
+    # branches:    
+    #   - 'releases/**'
+    # paths:
+    #   - '**.js'
 jobs:
   checkout-repo:
     runs-on: ubuntu-latest
