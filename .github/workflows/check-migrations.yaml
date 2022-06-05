@@ -1,28 +1,26 @@
-name: learn-github-actions
+name: check-migrations
 on:
   pull_request:
     types:
       - opened
     branches: [ "main" ]
-    # branches:    
-    #   - 'releases/**'
-    # paths:
-    #   - '**.js'
+    paths:
+      - 'migrations/**.js'
 jobs:
-
   check-migrations:
     runs-on: ubuntu-latest
     env:
       TEST_DB_DATABASE: testdb
       TEST_DB_USER: testuser
       TEST_DB_PASSWORD: testdbpassword
-      TEST_DB_HOST: localhost
-
     steps:
+      - run: |
+          sudo /etc/init.d/mysql start
+          mysql -e 'CREATE DATABASE ${{ env.TEST_DB_DATABASE }};' -u${{ env.TEST_DB_USER }} -p${{ env.TEST_DB_PASSWORD }}
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '12'
       - run: npm install db-migrate -g
       - run: npm install -g db-migrate-mysql
       - run: db-migrate up -e test
