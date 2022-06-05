@@ -9,12 +9,19 @@ on:
     # paths:
     #   - '**.js'
 jobs:
-  checkout-repo:
+
+  check-migrations:
     runs-on: ubuntu-latest
+    env:
+      DB_DATABASE: testdb
+      DB_USER: testuser
+      DB_PASSWORD: testdbpassword
+      DB_HOST: localhost
+
     steps:
       - uses: actions/checkout@v3
-      - run: pwd
-      - run: git status
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
+      - run: npm install db-migrate -g
+      - run: db-migrate up -e test
