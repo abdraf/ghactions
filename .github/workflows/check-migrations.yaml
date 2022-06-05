@@ -24,4 +24,5 @@ jobs:
         with:
           node-version: '14'
       - run: npm install db-migrate -g
+      - run: npm install -g db-migrate-mysql
       - run: db-migrate up -e test
