@@ -15,7 +15,7 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return true;
+  throw "migration failed"
 };
 
 exports.down = function(db) {

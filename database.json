@@ -9,7 +9,7 @@
       "password": {"ENV": "TEST_DB_PASSWORD"},
       "host": {"ENV": "TEST_DB_HOST"},
       "database": {"ENV": "TEST_DB_DATABASE"},
-      "port": {"ENV": "TEST_DB_PORT"}
+      "port": 3306
     },
     "prod": {
       "driver": "mysql",
