@@ -13,10 +13,10 @@ jobs:
   check-migrations:
     runs-on: ubuntu-latest
     env:
-      DB_DATABASE: testdb
-      DB_USER: testuser
-      DB_PASSWORD: testdbpassword
-      DB_HOST: localhost
+      TEST_DB_DATABASE: testdb
+      TEST_DB_USER: testuser
+      TEST_DB_PASSWORD: testdbpassword
+      TEST_DB_HOST: localhost
 
     steps:
       - uses: actions/checkout@v3
