@@ -16,7 +16,8 @@ jobs:
     steps:
       - run: |
           sudo /etc/init.d/mysql start
-          mysql -e 'CREATE DATABASE ${{ env.TEST_DB_DATABASE }};' -u ${{ env.TEST_DB_USER }} -p ${{ env.TEST_DB_PASSWORD }}
+          mysql -e 'CREATE DATABASE ${{env.TEST_DB_DATABASE}};' --user=${{env.TEST_DB_USER}} --password=${{env.TEST_DB_PASSWORD}}
+          mysql -e 'SHOW DATABASES;'  --user=${{env.TEST_DB_USER}} --password=${{env.TEST_DB_PASSWORD}}
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
