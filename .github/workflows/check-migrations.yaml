@@ -15,8 +15,8 @@ jobs:
       TEST_DB_PASSWORD: root
     steps:
       - run: sudo systemctl start mysql.service
-      - run: sudo mysql -e 'CREATE DATABASE ${{env.TEST_DB_DATABASE}};' -u ${{env.TEST_DB_USER}} -p ${{env.TEST_DB_PASSWORD}}
-      - run: sudo mysql -e 'SHOW DATABASES;'  -u ${{env.TEST_DB_USER}} -p ${{env.TEST_DB_PASSWORD}}
+      - run: sudo mysql -e 'CREATE DATABASE ${{env.TEST_DB_DATABASE}};' -u ${{env.TEST_DB_USER}} -p${{env.TEST_DB_PASSWORD}}
+      - run: sudo mysql -e 'SHOW DATABASES;'  -u ${{env.TEST_DB_USER}} -p${{env.TEST_DB_PASSWORD}}
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
