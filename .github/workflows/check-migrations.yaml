@@ -13,6 +13,7 @@ jobs:
       TEST_DB_DATABASE: testdb
       TEST_DB_USER: root
       TEST_DB_PASSWORD: root
+      TEST_DB_HOST: localhost
     steps:
       - run: sudo systemctl start mysql.service
       - run: sudo mysql -e 'CREATE DATABASE ${{env.TEST_DB_DATABASE}};' -u ${{env.TEST_DB_USER}} -p${{env.TEST_DB_PASSWORD}}
