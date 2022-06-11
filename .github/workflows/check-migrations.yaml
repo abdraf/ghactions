@@ -13,10 +13,9 @@ jobs:
       TEST_DB_DATABASE: testdb
       TEST_DB_USER: root
     steps:
-      - run: |
-          sudo /etc/init.d/mysql start
-          mysql -e 'CREATE DATABASE ${{env.TEST_DB_DATABASE}};' -u {{env.TEST_DB_USER}}
-          mysql -e 'SHOW DATABASES;'  -u ${{env.TEST_DB_USER}}
+      - run: sudo /etc/init.d/mysql start
+      - run: sudo mysql -e 'CREATE DATABASE ${{env.TEST_DB_DATABASE}};' -u {{env.TEST_DB_USER}}
+      - run: sudo mysql -e 'SHOW DATABASES;'  -u ${{env.TEST_DB_USER}}
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
