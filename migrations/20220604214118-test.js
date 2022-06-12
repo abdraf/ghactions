@@ -15,7 +15,7 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return true;
+  return null;
 };
 
 exports.down = function(db) {
