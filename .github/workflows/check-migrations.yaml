@@ -23,6 +23,6 @@ jobs:
           node-version: '12'
       - uses: actions/checkout@v3
       - run: pwd
-      - run: npm install db-migrate -g
-      - run: npm install -g db-migrate-mysql
-      - run: db-migrate up -e test
+      - run: sudo npm install db-migrate -g
+      - run: sudo npm install -g db-migrate-mysql
+      - run: sudo db-migrate
