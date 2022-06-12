@@ -25,4 +25,4 @@ jobs:
       - run: pwd
       - run: sudo npm install db-migrate -g
       - run: sudo npm install -g db-migrate-mysql
-      - run: sudo db-migrate
+      - run: sudo db-migrate up -e test
